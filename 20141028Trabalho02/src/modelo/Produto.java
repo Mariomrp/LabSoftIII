@@ -6,15 +6,15 @@ package modelo;
  * @author 631220116
  */
 public class Produto {
-    private String nome, tipo;
-    private double preco;
+    private String nome, categoria;
+    private double valor;
     private int id, quantidade;
     
-    public Produto (int id, String nome, String tipo, double preco, int quantidade) {
+    public Produto (int id, String nome, String categoria, double valor, int quantidade) {
         this.id = id;
         this.nome = nome;
-        this.tipo = tipo;
-        this.preco = preco;
+        this.categoria = categoria;
+        this.valor = valor;
         this.quantidade = quantidade;
     }
 
@@ -24,22 +24,6 @@ public class Produto {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public double getPreco() {
-        return preco;
-    }
-
-    public void setPreco(double preco) {
-        this.preco = preco;
     }
 
     public int getId() {
@@ -58,9 +42,25 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
     @Override
     public String toString() {
-        return "Produto{" + "nome=" + nome + ", tipo=" + tipo + ", preco=" + preco + ", id=" + id + ", quantidade=" + quantidade + '}';
+        return "Produto{" + "nome=" + nome + ", categoria=" + categoria + ", valor=" + valor + ", id=" + id + ", quantidade=" + quantidade + '}';
     }
-    
+
 }

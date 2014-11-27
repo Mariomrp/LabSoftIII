@@ -18,7 +18,7 @@ public class ProdutoDAO_JDBC implements ProdutoDAO {
     private PreparedStatement comando;
 
     public void iniciarConexao(String sql) throws ClassNotFoundException, SQLException {
-        conexao = ConnectionFactory.getConnectionPostgre();
+        conexao = ConnectionFactory.getConexaoMySQL();
         comando = conexao.prepareStatement(sql);
     }
 
@@ -29,12 +29,11 @@ public class ProdutoDAO_JDBC implements ProdutoDAO {
 
     @Override
     public void inserir(Produto produto) {
-        String sql = "INSERT INTO pessoa(nome,email) "
-                + "VALUES (?,?)";
+        String sql = "INSERT INTO produto(nome,categoria) " + "VALUES (?,?)";
         try {
             iniciarConexao(sql);
             comando.setString(1, produto.getNome());
-            comando.setString(2, produto.getTipo());
+            comando.setString(2, produto.getCategoria());
             comando.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ProdutoDAO_JDBC.class.getName()).log(Level.SEVERE, null, ex);
